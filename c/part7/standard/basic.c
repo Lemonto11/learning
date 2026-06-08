@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 
 #define SIZE 512
 int main(){
@@ -38,7 +39,7 @@ int main(){
 	
 	//fputs(const char *s, FILE* stream)
 	printf("--------fputs-------\n");
-	if(fputs("susususupernova", fp)==EOF){
+	if(fputs("susususupernova\n", fp)==EOF){
 		perror("fputs");
 	}
 	printf("写入susususupernova\n");
@@ -56,7 +57,15 @@ int main(){
 	printf("%s", buffer);
 	printf("\n");
 	
+	//fwrite(void* ptr, size_t size, size_t num, FILE* Stream)
+	printf("写入next level\n");
+	char str[]="next level";
+	fwrite(str, 1, strlen(str), fp);
+	
+	
 	//fclose
 	fclose(fp);
+	
+	
     return 0;
 }
